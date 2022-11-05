@@ -19,8 +19,8 @@ const getCategories = async (req, res) => {
     .then(async (response) => {
       res.status(response.status).json(await response.json());
     })
-    .catch((error) => {
-      res.status(error.response.message).json({ message: error.response.message });
+    .catch(() => {
+      res.status(404).json([]);
     });
 };
 
@@ -33,8 +33,8 @@ const getBooks = async (req, res) => {
     .then(async (response) => {
       res.status(response.status).json(await response.json());
     })
-    .catch((error) => {
-      console.log(error);
+    .catch(() => {
+      res.status(404).json([]);
     });
 };
 
